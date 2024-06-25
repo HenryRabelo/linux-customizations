@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# Enable APT SecComp Sandbox
+echo 'APT::Sandbox::Seccomp "true";' > '/etc/apt/apt.conf.d/40sandbox'
+
 ####
 
 ## ZSH Configuration ##
@@ -48,9 +51,6 @@ apt install chrony
 
 # Install more AppArmor profiles
 apt install apparmor-profiles apparmor-profiles-extra
-
-# Enable APT SecComp Sandbox
-echo 'APT::Sandbox::Seccomp "true";' > '/etc/apt/apt.conf.d/40sandbox'
 
 # Enable Uncomplicated Firewall / allow GSConnect Port
 ufw enable
